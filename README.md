@@ -139,16 +139,29 @@ flowchart TD
 ## 🔒 Security Implementation
 
 ```mermaid
-flowchart LR
-    A[Client Request] --> B{Has JWT Token?}
-    B -->|No| C[401 Unauthorized]
-    B -->|Yes| D{Token Valid?}
-    D -->|No| C
-    D -->|Yes| E{User Exists in DB?}
-    E -->|No| C
-    E -->|Yes| F{Role Authorized?}
-    F -->|No| G[403 Forbidden]
-    F -->|Yes| H[Process Request]
+flowchart TD
+    Request(["🌐 API Request"])
+    
+    subgraph Middleware ["🛡️ Authentication Pipeline"]
+        direction TB
+        T["1️⃣ Extract JWT Token"]
+        V["2️⃣ Verify Signature"]
+        U["3️⃣ Fetch User from DB"]
+        R["4️⃣ Check Role Access"]
+        
+        T --> V --> U --> R
+    end
+    
+    Block(["🚫 Blocked (401/403 Error)"])
+    Allow(["✅ Allowed (Process Request)"])
+
+    Request ===| "Authorization: Bearer <token>" |==> T
+    R ===| "Pass" |==> Allow
+    
+    T -. "Fail" .-> Block
+    V -. "Fail" .-> Block
+    U -. "Fail" .-> Block
+    R -. "Fail" .-> Block
 ```
 
 | Security Feature | Implementation |

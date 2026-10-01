@@ -1,0 +1,156 @@
+/* ─────────────────────────────────────────────────────────
+   Global CSS Reset & Design Tokens
+   ───────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Colour palette ─────────────────────────────────── */
+  --clr-bg:           #f1f5f9;
+  --clr-surface:      #ffffff;
+  --clr-surface-2:    #f8fafc;
+  --clr-border:       #e2e8f0;
+  --clr-border-focus: #93c5fd;
+
+  --clr-text-primary:   #0f172a;
+  --clr-text-secondary: #475569;
+  --clr-text-muted:     #94a3b8;
+
+  --clr-accent:       #2563eb;
+  --clr-accent-hover: #1d4ed8;
+  --clr-accent-light: #eff6ff;
+  --clr-accent-ring:  rgba(37, 99, 235, 0.18);
+
+  --clr-danger:       #dc2626;
+  --clr-danger-light: #fef2f2;
+  --clr-success:      #16a34a;
+  --clr-success-light:#f0fdf4;
+  --clr-warning:      #d97706;
+
+  /* ── Typography ──────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Gradients ───────────────────────────────────────── */
+  --bg-grad-1: rgba(37, 99, 235, 0.28);
+  --bg-grad-2: rgba(147, 51, 234, 0.25);
+  --bg-grad-3: rgba(16, 185, 129, 0.25);
+
+  --clr-surface-glass: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme='dark'] {
+  --clr-bg:           #090a15;
+  --clr-surface:      #111424;
+  --clr-surface-2:    #191c32;
+  --clr-border:       #1f233f;
+  --clr-border-focus: #575bf1;
+
+  --clr-text-primary:   #f8fafc;
+  --clr-text-secondary: #cbd5e1;
+  --clr-text-muted:     #64748b;
+
+  --clr-accent:       #575bf1;
+  --clr-accent-hover: #474ce2;
+  --clr-accent-light: rgba(87, 91, 241, 0.15);
+  --clr-accent-ring:  rgba(87, 91, 241, 0.25);
+
+  --clr-danger:       #ef4444;
+  --clr-danger-light: rgba(239, 68, 68, 0.15);
+  --clr-success:      #22c55e;
+  --clr-success-light:rgba(34, 197, 94, 0.15);
+  --clr-warning:      #f59e0b;
+  
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+
+  --bg-grad-1: rgba(87, 91, 241, 0.15);
+  --bg-grad-2: rgba(147, 51, 234, 0.15);
+  --bg-grad-3: rgba(14, 165, 233, 0.12);
+
+  --clr-surface-glass: rgba(17, 20, 36, 0.45);
+}
+
+:root {
+  /* ── Spacing scale ───────────────────────────────────── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+
+  /* ── Radius ──────────────────────────────────────────── */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-full: 9999px;
+
+  /* ── Elevation / Shadows ─────────────────────────────── */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+
+  /* ── Transitions ─────────────────────────────────────── */
+  --ease-fast: 120ms ease;
+  --ease-base: 220ms ease;
+}
+
+/* ── Base reset ──────────────────────────────────────────── */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--clr-bg);
+  background-image: 
+    radial-gradient(circle at 0% 0%, var(--bg-grad-1) 0px, transparent 80%),
+    radial-gradient(circle at 100% 0%, var(--bg-grad-2) 0px, transparent 80%),
+    radial-gradient(circle at 100% 100%, var(--bg-grad-3) 0px, transparent 80%);
+  background-attachment: fixed;
+  color: var(--clr-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+a {
+  color: var(--clr-accent);
+  text-decoration: none;
+}
+
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--clr-text-primary);
+}
+
+/* ── Accessibility ───────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar styling ───────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--clr-border); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--clr-text-muted); }

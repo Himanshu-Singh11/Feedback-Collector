@@ -1,0 +1,37 @@
+/* EmptyState.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-12) var(--sp-6);
+  text-align: center;
+  gap: var(--sp-3);
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-xl);
+  background: var(--clr-surface-2);
+  color: var(--clr-text-muted);
+  border: 1px solid var(--clr-border);
+  margin-bottom: var(--sp-2);
+}
+
+.title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--clr-text-muted);
+  max-width: 280px;
+  line-height: 1.6;
+}

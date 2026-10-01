@@ -1,0 +1,46 @@
+/* DateFilter.module.css */
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  position: absolute;
+  left: var(--sp-3);
+  color: var(--clr-text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  padding: var(--sp-2) calc(var(--sp-3) + 13px + var(--sp-2)) var(--sp-2) calc(var(--sp-3) + 14px + var(--sp-2));
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  background: var(--clr-surface);
+  font-size: 0.875rem;
+  color: var(--clr-text-primary);
+  appearance: none;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+  font-weight: 500;
+}
+
+.select:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px var(--clr-accent-ring);
+}
+
+.chevron {
+  position: absolute;
+  right: var(--sp-3);
+  pointer-events: none;
+  color: var(--clr-text-muted);
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,182 @@
+/* FeedbackItem.module.css */
+
+.item {
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  background: var(--clr-surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transition: box-shadow var(--ease-base), border-color var(--ease-base), opacity var(--ease-base);
+}
+
+.item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #cbd5e1;
+}
+
+.itemDeleting {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Top row ─────────────────────────────────────────────── */
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+/* Avatar */
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+/* Identity */
+.identity {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email {
+  font-size: 0.8125rem;
+  color: var(--clr-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statusBadge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #047857; /* Emerald green */
+  background: #d1fae5;
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-sm);
+  margin-top: 0.25rem;
+  width: fit-content;
+}
+
+/* Right meta */
+.rightMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+/* Date */
+.date {
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  white-space: nowrap;
+}
+
+/* Delete Button */
+.deleteBtn {
+  background: none;
+  border: none;
+  padding: 4px;
+  margin: -4px;
+  color: var(--clr-text-muted);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--ease-fast), background-color var(--ease-fast);
+}
+
+.deleteBtn:hover {
+  color: var(--clr-danger);
+  background-color: var(--clr-danger-light, #fee2e2);
+}
+
+.deleteBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Message ─────────────────────────────────────────────── */
+.message {
+  font-size: 0.9rem;
+  color: var(--clr-text-secondary);
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+/* ── Expand / collapse toggle ────────────────────────────── */
+.expandBtn {
+  align-self: flex-start;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--clr-accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color var(--ease-fast);
+}
+
+.expandBtn:hover {
+  color: var(--clr-accent-hover);
+  text-decoration: underline;
+}
+
+/* ── Modal Footer Buttons ────────────────────────────────── */
+.cancelBtn {
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--clr-surface-2);
+  color: var(--clr-text-secondary);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--ease-fast);
+}
+
+.cancelBtn:hover {
+  background: #e2e8f0;
+}
+
+.confirmDeleteBtn {
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--clr-danger);
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--ease-fast);
+}
+
+.confirmDeleteBtn:hover {
+  background: #b91c1c;
+}

@@ -1,0 +1,64 @@
+/* SearchBar.module.css */
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: var(--sp-3);
+  color: var(--clr-text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: var(--sp-2) var(--sp-8) var(--sp-2) calc(var(--sp-3) + 15px + var(--sp-2));
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  background: var(--clr-surface);
+  font-size: 0.875rem;
+  color: var(--clr-text-primary);
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+  outline: none;
+  /* Remove browser search-field default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--clr-text-muted);
+}
+
+.input:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px var(--clr-accent-ring);
+}
+
+/* Hide native search clear icon */
+.input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.clearBtn {
+  position: absolute;
+  right: var(--sp-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--clr-border);
+  color: var(--clr-text-muted);
+  transition: background var(--ease-fast), color var(--ease-fast);
+}
+
+.clearBtn:hover {
+  background: var(--clr-text-muted);
+  color: var(--clr-surface);
+}

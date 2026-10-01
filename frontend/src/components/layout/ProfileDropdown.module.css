@@ -1,0 +1,271 @@
+/* ProfileDropdown.module.css */
+
+.wrapper {
+  position: relative;
+}
+
+/* ── Trigger button ──────────────────────────────────────── */
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  border-radius: var(--radius-md);
+  transition: background var(--ease-fast);
+}
+
+.trigger:hover {
+  background: var(--clr-surface-2);
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background: var(--clr-accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-text-primary);
+}
+
+.chevron {
+  color: var(--clr-text-muted);
+  transition: transform var(--ease-fast);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown panel ──────────────────────────────────────── */
+.panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 280px;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 500;
+  overflow: hidden;
+  animation: fadeDown 0.15s ease;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Profile section ─────────────────────────────────────── */
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-4);
+}
+
+.bigAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--clr-accent);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profileName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+}
+
+.profileEmail {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  margin-top: 1px;
+  word-break: break-all;
+}
+
+.roleBadge {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--clr-accent);
+  background: var(--clr-accent-light);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--clr-border);
+  margin: 0;
+}
+
+/* ── Menu items ──────────────────────────────────────────── */
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-text-secondary);
+  text-align: left;
+  transition: background var(--ease-fast);
+}
+
+.menuItem:hover {
+  background: var(--clr-surface-2);
+  color: var(--clr-text-primary);
+}
+
+/* ── Change Password form ─────────────────────────────────── */
+.cpHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: none;
+  color: var(--clr-text-muted);
+  cursor: pointer;
+  transition: background var(--ease-fast);
+}
+
+.backBtn:hover {
+  background: var(--clr-surface-2);
+}
+
+.cpTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+}
+
+.cpForm {
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.cpField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cpLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--clr-text-secondary);
+}
+
+.pwWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cpInput {
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0.65rem;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  background: var(--clr-surface);
+  color: var(--clr-text-primary);
+  outline: none;
+  transition: border-color var(--ease-fast);
+}
+
+.cpInput:focus {
+  border-color: var(--clr-accent);
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--clr-text-muted);
+  display: flex;
+  align-items: center;
+}
+
+.statusMsg {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.statusSuccess {
+  background: var(--clr-success-light);
+  color: var(--clr-success);
+}
+
+.statusError {
+  background: var(--clr-danger-light);
+  color: var(--clr-danger);
+}
+
+.cpSubmit {
+  width: 100%;
+  padding: 0.55rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--clr-accent);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--ease-fast);
+}
+
+.cpSubmit:hover:not(:disabled) {
+  background: var(--clr-accent-hover);
+}
+
+.cpSubmit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,0 +1,141 @@
+/* App.module.css */
+
+.app {
+  min-height: 100vh;
+  background-color: var(--clr-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Two-column dashboard grid ────────────────────────────── */
+.main {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: var(--sp-6);
+  padding: var(--sp-6);
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+  align-items: start;
+}
+
+/* ── Left column ────────────────────────────────────────── */
+.leftPanel {
+  position: sticky;
+  top: calc(64px + var(--sp-6));   /* stick below header */
+}
+
+/* ── Right column ───────────────────────────────────────── */
+.rightPanel {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-5) var(--sp-6);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.panelHeading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.countBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 22px;
+  padding: 0 var(--sp-2);
+  background: var(--clr-accent-light);
+  color: var(--clr-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  letter-spacing: 0;
+}
+
+/* ── Filter bar ─────────────────────────────────────────── */
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-6);
+  border-bottom: 1px solid var(--clr-border);
+  background: var(--clr-surface-2);
+}
+
+.searchWrapper {
+  flex: 1;
+}
+
+/* ── Scrollable list area ───────────────────────────────── */
+.listArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-4) var(--sp-6) var(--sp-6);
+}
+
+.toastContainer {
+  position: fixed;
+  bottom: var(--sp-6);
+  right: var(--sp-6);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  pointer-events: none;
+}
+.toastContainer > * {
+  pointer-events: auto;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .leftPanel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: var(--sp-4);
+    gap: var(--sp-4);
+  }
+
+  .filterRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .panelHeader {
+    padding: var(--sp-4) var(--sp-4);
+  }
+
+  .listArea {
+    padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  }
+}

@@ -1,0 +1,22 @@
+.skeleton {
+  animation: skeleton-loading 1.2s ease-in-out infinite alternate;
+  background-color: var(--clr-surface-2);
+  border-radius: var(--radius-sm);
+  width: 100%;
+}
+
+.text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--clr-surface-2);
+  }
+  100% {
+    background-color: var(--clr-border);
+  }
+}

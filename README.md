@@ -155,7 +155,7 @@ flowchart TD
     Block(["🚫 Blocked (401/403 Error)"])
     Allow(["✅ Allowed (Process Request)"])
 
-    Request == "Authorization: Bearer <token>" ==> T
+    Request == "Authorization: Bearer Token" ==> T
     R == "Pass" ==> Allow
     
     T -. "Fail" .-> Block

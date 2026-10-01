@@ -128,7 +128,6 @@ flowchart TD
 | `GET` | `/api/feedback/:id` | Get single feedback | ✅ | Owner, Admin |
 | `POST` | `/api/feedback` | Submit new feedback | ✅ | User, Admin |
 | `DELETE` | `/api/feedback/:id` | Delete feedback | ✅ | Owner, Admin |
-| `GET` | `/api/admin/feedback` | Get all feedbacks (admin only) | ✅ | Admin |
 
 ### Health
 | Method | Endpoint | Description | Auth |

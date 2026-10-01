@@ -39,11 +39,7 @@ app.get('/health', (_req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/feedback', feedbackRoutes);
 
-// Explicit role-based routes mapping to the same DRY controller logic
-const { protect, authorizeRoles } = require('./middleware/authMiddleware');
-const feedbackController = require('./controllers/feedbackController');
-app.get('/api/admin/feedback', protect, authorizeRoles('admin'), feedbackController.getAllFeedbacks);
-app.get('/api/user/feedback', protect, authorizeRoles('user', 'admin'), feedbackController.getAllFeedbacks);
+
 
 // ── 404 handler (must come after all routes) ──────────────
 app.use(notFound);

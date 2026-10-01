@@ -20,8 +20,8 @@
 }
 
 .moduleTitle {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--clr-text-primary);
   margin-bottom: var(--sp-1);
 }
@@ -44,35 +44,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--sp-3);
+  padding: 1.25rem 0;
   border: 1px solid var(--clr-border);
-  border-radius: var(--radius-md);
-  background: var(--clr-surface-2);
+  border-radius: 12px;
+  background: var(--clr-surface);
   cursor: pointer;
   transition: all var(--ease-fast);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .ratingBtn:hover {
-  background: var(--clr-border);
+  background: var(--clr-surface-2);
   border-color: var(--clr-border-focus);
 }
 
 .ratingBtnActive {
   background: var(--clr-accent-light);
   border-color: var(--clr-accent);
+  box-shadow: inset 0 0 0 1px var(--clr-accent);
 }
 
 .emoji {
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 1;
+  transition: transform var(--ease-fast);
+}
+
+.ratingBtn:hover .emoji {
+  transform: scale(1.15);
 }
 
 .ratingLabelsRow {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--clr-text-muted);
-  margin-top: var(--sp-2);
+  margin-top: 0.5rem;
+  padding: 0 0.25rem;
 }
 
 /* ── Text inputs ─────────────────────────────────────────── */

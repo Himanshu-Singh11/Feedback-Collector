@@ -121,9 +121,6 @@ function FeedbackForm({ onSubmit }) {
   const isNearCharLimit    = messageCharCount >= MESSAGE_MAX_LENGTH * 0.9;
 
   // ── Handlers ─────────────────────────────────────────────
-  // useCallback prevents child re-renders caused by new function references
-  // on every render cycle — relevant when the form grows more fields.
-
   const handleChange = useCallback((e) => {
     dispatch({ type: 'FIELD_CHANGE', field: e.target.name, value: e.target.value });
   }, []);
@@ -132,12 +129,7 @@ function FeedbackForm({ onSubmit }) {
     // Toggle rating: if clicking the currently selected rating, deselect it
     const newValue = formData.rating === value ? '' : value;
     dispatch({ type: 'FIELD_CHANGE', field: 'rating', value: newValue });
-    dispatch({ type: 'FIELD_BLUR', field: 'rating' });
   }, [formData.rating]);
-
-  const handleBlur = useCallback((e) => {
-    dispatch({ type: 'FIELD_BLUR', field: e.target.name });
-  }, []);
 
   const handleSubmit = useCallback(
     async (e) => {
@@ -220,7 +212,6 @@ function FeedbackForm({ onSubmit }) {
             placeholder="Type your answer here..."
             value={formData.message}
             onChange={handleChange}
-            onBlur={handleBlur}
             aria-describedby={
               [
                 visibleErrors.message ? 'error-message' : null,

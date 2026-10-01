@@ -139,7 +139,7 @@ flowchart TD
 ## 🔒 Security Implementation
 
 ```mermaid
-flowchart LR
+flowchart TD
     Request(["🌐 API Request"])
     
     subgraph Middleware ["🛡️ Authentication Pipeline"]
@@ -155,7 +155,7 @@ flowchart LR
     Block(["🚫 Blocked (401/403 Error)"])
     Allow(["✅ Allowed (Process Request)"])
 
-    Request -- "Authorization: Bearer Token" --> T
+    Request -- "Authorization: Bearer Token" --> Middleware
     R -- "Pass" --> Allow
     
     T -. "Fail" .-> Block

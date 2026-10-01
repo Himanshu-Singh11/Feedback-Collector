@@ -92,7 +92,7 @@ function formReducer(state, action) {
  *   Called only when all fields pass validation.
  *   Must return a Promise; the form awaits it before resetting.
  */
-function FeedbackForm({ onSubmit }) {
+function FeedbackForm({ onSubmit, onError }) {
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
   const { formData, touched, isSubmitting, isSubmitted } = state;
 
@@ -142,11 +142,13 @@ function FeedbackForm({ onSubmit }) {
       if (!isFormComplete(formData)) {
         dispatch({ type: 'SUBMIT_FAILURE' });
         
-        // Show an explicit screen popup (alert) if missing required fields
-        if (!formData.rating) {
-          window.alert("Please select a rating before submitting!");
-        } else if (formData.message.trim().length < 5) {
-          window.alert("Please write a message (at least 5 characters) before submitting!");
+        // Show professional toast notification if missing required fields
+        if (onError) {
+          if (!formData.rating) {
+            onError("Please select a rating before submitting.");
+          } else if (formData.message.trim().length < 5) {
+            onError("Please write a message (at least 5 characters) before submitting.");
+          }
         }
         
         return;
@@ -161,8 +163,8 @@ function FeedbackForm({ onSubmit }) {
         dispatch({ type: 'SUBMIT_FAILURE' });
       }
     },
-    // formData and onSubmit are the only values read inside the callback
-    [formData, onSubmit]
+    // formData, onSubmit, and onError are the only values read inside the callback
+    [formData, onSubmit, onError]
   );
 
   // ── Render ────────────────────────────────────────────────

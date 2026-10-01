@@ -71,7 +71,10 @@ function Dashboard() {
 
       <main className={styles.main}>
         <aside className={styles.leftPanel}>
-          <FeedbackForm onSubmit={handleSubmit} />
+          <FeedbackForm 
+            onSubmit={handleSubmit} 
+            onError={(msg) => showToast('error', msg)} 
+          />
         </aside>
 
         <section className={styles.rightPanel}>

@@ -139,7 +139,7 @@ flowchart TD
 ## 🔒 Security Implementation
 
 ```mermaid
-flowchart TD
+flowchart LR
     Request(["🌐 API Request"])
     
     subgraph Middleware ["🛡️ Authentication Pipeline"]

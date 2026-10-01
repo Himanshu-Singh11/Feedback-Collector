@@ -143,11 +143,11 @@ flowchart TD
     Request(["🌐 API Request"])
     
     subgraph Middleware ["🛡️ Authentication Pipeline"]
-        direction TB
-        T["1️⃣ Extract JWT Token"]
-        V["2️⃣ Verify Signature"]
-        U["3️⃣ Fetch User from DB"]
-        R["4️⃣ Check Role Access"]
+        direction LR
+        T["1️⃣ Extract Token"]
+        V["2️⃣ Verify Sig"]
+        U["3️⃣ Fetch User"]
+        R["4️⃣ Check Role"]
         
         T --> V --> U --> R
     end

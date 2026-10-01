@@ -68,36 +68,29 @@ Uncomment and update paths after adding your screenshots:
 ## 🏗️ Architecture
 
 ```mermaid
-graph TB
-    subgraph "Frontend (React + Vite)"
-        A[Login / Register] -->|JWT Token| B[AuthContext]
-        B --> C[User Dashboard]
-        B --> D[Admin Dashboard]
-        C --> E[FeedbackForm]
-        C --> F[FeedbackList]
-        D --> G[Analytics Cards]
-        D --> H[Feedback Table]
-        I[ThemeContext] --> C
-        I --> D
+flowchart TD
+    subgraph Frontend ["💻 Client (React + Vite)"]
+        direction LR
+        UI["Dashboards & Forms"]
+        State["Auth & Theme Context"]
+        UI <--> State
     end
 
-    subgraph "Backend (Node.js + Express)"
-        J[Auth Routes] --> K[Auth Controller]
-        L[Feedback Routes] --> M[Feedback Controller]
-        K --> N[User Model]
-        M --> O[Feedback Model]
-        P[Auth Middleware] --> L
-        Q[Error Handler]
+    subgraph Backend ["⚙️ Server (Node.js + Express)"]
+        direction LR
+        API["Routes & Middleware"]
+        Controllers["Business Logic"]
+        API --> Controllers
     end
 
-    subgraph "Database (MongoDB Atlas)"
-        R[(Users Collection)]
-        S[(Feedbacks Collection)]
+    subgraph Database ["☁️ MongoDB Atlas"]
+        direction LR
+        Users[(Users)]
+        Feedback[(Feedback)]
     end
 
-    C & D -->|Axios + JWT| J & L
-    N --> R
-    O --> S
+    Frontend == "Axios (REST API + JWT)" ==> Backend
+    Backend == "Mongoose ODM" ==> Database
 ```
 
 ---

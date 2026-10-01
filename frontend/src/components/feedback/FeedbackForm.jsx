@@ -129,9 +129,11 @@ function FeedbackForm({ onSubmit }) {
   }, []);
 
   const handleRatingSelect = useCallback((value) => {
-    dispatch({ type: 'FIELD_CHANGE', field: 'rating', value });
+    // Toggle rating: if clicking the currently selected rating, deselect it
+    const newValue = formData.rating === value ? '' : value;
+    dispatch({ type: 'FIELD_CHANGE', field: 'rating', value: newValue });
     dispatch({ type: 'FIELD_BLUR', field: 'rating' });
-  }, []);
+  }, [formData.rating]);
 
   const handleBlur = useCallback((e) => {
     dispatch({ type: 'FIELD_BLUR', field: e.target.name });
@@ -147,6 +149,14 @@ function FeedbackForm({ onSubmit }) {
       // Guard: re-validate on submit in case the button was somehow triggered
       if (!isFormComplete(formData)) {
         dispatch({ type: 'SUBMIT_FAILURE' });
+        
+        // Show an explicit screen popup (alert) if missing required fields
+        if (!formData.rating) {
+          window.alert("Please select a rating before submitting!");
+        } else if (formData.message.trim().length < 5) {
+          window.alert("Please write a message (at least 5 characters) before submitting!");
+        }
+        
         return;
       }
 

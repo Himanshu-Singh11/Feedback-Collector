@@ -44,34 +44,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem 0;
+  padding: var(--sp-3);
   border: 1px solid var(--clr-border);
-  border-radius: 12px;
-  background: var(--clr-surface);
+  border-radius: var(--radius-md);
+  background: var(--clr-surface-2);
   cursor: pointer;
   transition: all var(--ease-fast);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .ratingBtn:hover {
-  background: var(--clr-surface-2);
+  background: var(--clr-border);
   border-color: var(--clr-border-focus);
 }
 
 .ratingBtnActive {
   background: var(--clr-accent-light);
   border-color: var(--clr-accent);
-  box-shadow: inset 0 0 0 1px var(--clr-accent);
 }
 
 .emoji {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1;
-  transition: transform var(--ease-fast);
-}
-
-.ratingBtn:hover .emoji {
-  transform: scale(1.15);
 }
 
 .ratingLabelsRow {

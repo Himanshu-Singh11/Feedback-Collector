@@ -19,7 +19,7 @@ const feedbackSchema = new mongoose.Schema(
     },
     rating: {
       type: String,
-      enum: ['needs-work', 'okay', 'good', 'amazing'],
+      enum: ['terrible', 'needs-work', 'okay', 'good', 'amazing'],
       required: [true, 'Rating is required.'],
     },
     status: {

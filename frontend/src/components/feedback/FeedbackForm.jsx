@@ -25,7 +25,8 @@ const INITIAL_STATE = {
 };
 
 const RATING_OPTIONS = [
-  { value: 'needs-work', emoji: '😞', label: 'Needs work' },
+  { value: 'terrible',   emoji: '😞', label: 'Terrible' },
+  { value: 'needs-work', emoji: '😕', label: 'Needs work' },
   { value: 'okay',       emoji: '😐', label: "It's okay" },
   { value: 'good',       emoji: '😃', label: 'Pretty good' },
   { value: 'amazing',    emoji: '🤩', label: 'Amazing!' },

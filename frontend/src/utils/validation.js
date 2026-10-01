@@ -32,7 +32,7 @@ export const FIELD_CONSTRAINTS = {
 // validateField() walks the array and returns the first failure message.
 // Order matters: "required" always comes before "min-length".
 
-const VALID_RATINGS = ['needs-work', 'okay', 'good', 'amazing'];
+const VALID_RATINGS = ['terrible', 'needs-work', 'okay', 'good', 'amazing'];
 
 const FIELD_RULES = {
   message: [

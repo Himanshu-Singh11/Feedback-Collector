@@ -1,147 +1,337 @@
-# Feedback Collector
+<div align="center">
 
-An elegant, production-ready internal dashboard for collecting and managing user feedback. Designed with a minimal, modern aesthetic and engineered with robust, scalable architecture.
+# 🎯 Feedback Collector
 
-![Screenshots Placeholder](https://via.placeholder.com/1200x600.png?text=Feedback+Collector+Dashboard+Screenshot)
+### A Full-Stack Feedback Management Platform
 
-## 📖 Project Overview
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Feedback_Collector-2563eb?style=for-the-badge)](https://himanshu-singh11.github.io/Feedback-Collector)
+[![Backend API](https://img.shields.io/badge/⚡_API-Render-16a34a?style=for-the-badge)](https://feedback-collector-qwv3.onrender.com/health)
+[![MongoDB](https://img.shields.io/badge/☁️_Database-MongoDB_Atlas-47a248?style=for-the-badge)](https://www.mongodb.com/atlas)
 
-Feedback Collector is a full-stack web application designed for teams to easily gather, view, and manage customer feedback. The application provides a sleek single-page interface with a responsive two-column grid. Users can submit feedback via a highly resilient, validated form on the left, and immediately view, search, filter, and delete entries in the real-time feed on the right. 
+A modern, production-ready web application for collecting, managing, and analyzing user feedback. Built with **React**, **Node.js**, **Express**, and **MongoDB** — featuring role-based access control, dark/light themes, glassmorphism UI, and real-time filtering.
 
-This project was built focusing on pure React foundations, enterprise Express patterns, and stringent user experience (UX) guidelines—avoiding bloated UI libraries in favour of handcrafted, performant CSS Modules.
+---
 
-## ✨ Features
+</div>
 
-- **Real-Time Interface:** View and manage feedback submissions instantly without page reloads.
-- **Robust Form Validation:** Custom, framework-agnostic validation utility providing real-time inline errors.
-- **Advanced Filtering:** Instantly filter feedback by text (name, email, message) or by dynamic date ranges (Today, Last 7 Days, Last 30 Days).
-- **Graceful Loading & Empty States:** Features layout-preserving skeleton loaders and responsive empty states.
-- **Global Error Handling:** Unified API interceptors and Express error sinkholes guarantee the app never crashes silently, displaying smooth Toast notifications instead.
-- **Accessible & Responsive:** Fully responsive CSS Grid architecture, semantic HTML, keyboard focus rings (`:focus-visible`), and ARIA tags.
-- **Safe Deletion Flow:** Features an animated, portal-based modal to prevent accidental data loss.
+## 📸 Screenshots
 
-## 🛠️ Technology Stack
+> **Add your own screenshots here!** Run the app locally, take screenshots of Login, Dashboard, Admin Panel (both themes), and save them in `frontend/public/screenshots/`.
 
-**Frontend**
-- React 18 (Vite)
-- Axios
-- Vanilla CSS Modules (Custom Design Token System)
+<!-- 
+Uncomment and update paths after adding your screenshots:
 
-**Backend**
-- Node.js & Express
-- MongoDB & Mongoose
-- Morgan (Logging)
-- CORS & dotenv
+### 🔐 Login Page
+| Light Mode | Dark Mode |
+|:---:|:---:|
+| ![Login Light](frontend/public/screenshots/login-light.png) | ![Login Dark](frontend/public/screenshots/login-dark.png) |
 
-## 📂 Folder Structure
+### 📊 User Dashboard
+| Light Mode | Dark Mode |
+|:---:|:---:|
+| ![Dashboard Light](frontend/public/screenshots/dashboard-light.png) | ![Dashboard Dark](frontend/public/screenshots/dashboard-dark.png) |
 
-```text
-Feedback Collector/
-├── backend/
-│   ├── config/          # Environment & Database configuration
-│   ├── controllers/     # Express route handlers
-│   ├── middleware/      # Error, 404, and Validation middleware
-│   ├── models/          # Mongoose schemas (Feedback)
-│   ├── routes/          # API route definitions
-│   ├── services/        # Business logic & DB queries
-│   ├── utils/           # Shared backend utilities (ApiError, ApiResponse)
-│   ├── app.js           # Express app instance setup
-│   └── server.js        # Server entry point
-│
-└── frontend/
-    ├── src/
-    │   ├── assets/      # Static assets and icons
-    │   ├── components/  # React Components
-    │   │   ├── common/  # Reusable UI (Modal, Toast, SearchBar, etc.)
-    │   │   ├── feedback/# Feature-specific UI (Form, List, Item)
-    │   │   └── layout/  # Structural UI (Header)
-    │   ├── hooks/       # Custom React Hooks (useFeedbackAPI)
-    │   ├── services/    # Axios API client setup
-    │   ├── styles/      # Global CSS tokens and resets
-    │   ├── utils/       # Pure functions (validation, filtering)
-    │   ├── App.jsx      # Main application orchestrator
-    │   └── main.jsx     # React DOM entry point
-    ├── .env             # Frontend environment variables
-    └── package.json
+### 🛡️ Admin Dashboard
+| Light Mode | Dark Mode |
+|:---:|:---:|
+| ![Admin Light](frontend/public/screenshots/admin-light.png) | ![Admin Dark](frontend/public/screenshots/admin-dark.png) |
+-->
+
+---
+
+## ✨ Key Features
+
+### 👤 User Features
+- **📝 Submit Feedback** — Interactive emoji-based rating system (😞 😐 😃 🤩) with real-time character counter
+- **📋 View My Feedback** — Personal feedback history with expandable message cards
+- **🔍 Smart Search** — Real-time search across all feedback fields
+- **📅 Date Filtering** — Filter by Today, Last 7 Days, Last 30 Days
+- **🔒 Change Password** — In-app password management with visibility toggles
+- **🌙 Dark/Light Mode** — Beautiful theme switching with persistent preference
+
+### 🛡️ Admin Features
+- **📊 Analytics Dashboard** — Total feedbacks, today's count, and category breakdown
+- **📋 Manage All Feedback** — View, search, filter, and delete any user's feedback
+- **🕐 Recent Activity** — Live timeline of the latest 5 submissions
+- **👁️ Detail View** — Full feedback modal with user metadata and timestamps
+
+### 🎨 UI/UX Highlights
+- **Glassmorphism Header** — Frosted glass effect with backdrop blur
+- **Mesh Gradient Background** — Dynamic multi-color radial gradients (both themes)
+- **Shake Animation** — Form shakes on invalid login credentials
+- **Skeleton Loading** — Animated placeholder shimmer during data fetch
+- **Toast Notifications** — Slide-in success/error alerts with auto-dismiss
+- **Responsive Design** — Fully responsive across all device sizes
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TB
+    subgraph "Frontend (React + Vite)"
+        A[Login / Register] -->|JWT Token| B[AuthContext]
+        B --> C[User Dashboard]
+        B --> D[Admin Dashboard]
+        C --> E[FeedbackForm]
+        C --> F[FeedbackList]
+        D --> G[Analytics Cards]
+        D --> H[Feedback Table]
+        I[ThemeContext] --> C
+        I --> D
+    end
+
+    subgraph "Backend (Node.js + Express)"
+        J[Auth Routes] --> K[Auth Controller]
+        L[Feedback Routes] --> M[Feedback Controller]
+        K --> N[User Model]
+        M --> O[Feedback Model]
+        P[Auth Middleware] --> L
+        Q[Error Handler]
+    end
+
+    subgraph "Database (MongoDB Atlas)"
+        R[(Users Collection)]
+        S[(Feedbacks Collection)]
+    end
+
+    C & D -->|Axios + JWT| J & L
+    N --> R
+    O --> S
 ```
 
-## 🚀 Installation Steps
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Purpose |
+|:---:|:---|:---|
+| **Frontend** | React 18, Vite, React Router 7 | SPA with fast HMR and modern routing |
+| **Styling** | CSS Modules, CSS Variables | Scoped styles with dynamic theming |
+| **State** | React Context API, useReducer | Auth state, theme management |
+| **HTTP Client** | Axios | Request/response interceptors, auto-auth |
+| **Backend** | Node.js, Express.js | RESTful API server |
+| **Auth** | JWT (jsonwebtoken), bcryptjs | Token-based auth with password hashing |
+| **Database** | MongoDB Atlas, Mongoose | Cloud-hosted NoSQL with ODM |
+| **Logging** | Morgan | HTTP request logging |
+| **Deployment** | GitHub Pages + Render | Frontend CDN + Backend cloud hosting |
+
+---
+
+## 📡 API Endpoints
+
+### Authentication
+| Method | Endpoint | Description | Auth |
+|:---:|:---|:---|:---:|
+| `POST` | `/api/auth/register` | Register new user | ❌ |
+| `POST` | `/api/auth/login` | Login & get JWT token | ❌ |
+| `GET` | `/api/auth/profile` | Get current user profile | ✅ |
+| `PUT` | `/api/auth/change-password` | Update password | ✅ |
+
+### Feedback
+| Method | Endpoint | Description | Auth | Roles |
+|:---:|:---|:---|:---:|:---:|
+| `GET` | `/api/feedback` | Get feedbacks (scoped by role) | ✅ | User, Admin |
+| `GET` | `/api/feedback/:id` | Get single feedback | ✅ | Owner, Admin |
+| `POST` | `/api/feedback` | Submit new feedback | ✅ | User, Admin |
+| `DELETE` | `/api/feedback/:id` | Delete feedback | ✅ | Owner, Admin |
+| `GET` | `/api/admin/feedback` | Get all feedbacks (admin only) | ✅ | Admin |
+
+### Health
+| Method | Endpoint | Description | Auth |
+|:---:|:---|:---|:---:|
+| `GET` | `/health` | Server status check | ❌ |
+
+---
+
+## 🔒 Security Implementation
+
+```mermaid
+flowchart LR
+    A[Client Request] --> B{Has JWT Token?}
+    B -->|No| C[401 Unauthorized]
+    B -->|Yes| D{Token Valid?}
+    D -->|No| C
+    D -->|Yes| E{User Exists in DB?}
+    E -->|No| C
+    E -->|Yes| F{Role Authorized?}
+    F -->|No| G[403 Forbidden]
+    F -->|Yes| H[Process Request]
+```
+
+| Security Feature | Implementation |
+|:---|:---|
+| **Password Hashing** | bcryptjs with salt rounds (10) |
+| **JWT Authentication** | Signed tokens with configurable expiration (30d default) |
+| **Role-Based Access Control** | `protect` + `authorizeRoles` middleware chain |
+| **Data Isolation** | Users can only access/delete their own feedback |
+| **Password Exclusion** | Mongoose `select: false` — passwords never leak in API responses |
+| **Input Validation** | Schema-level (Mongoose) + middleware-level (validateRequest) |
+| **Payload Limiting** | `express.json({ limit: '10kb' })` prevents DOS attacks |
+| **Error Sanitization** | Stack traces hidden in production mode |
+| **Auto-Logout** | Axios interceptor catches 401 → fires DOM event → clears session |
+
+---
+
+## 📁 Project Structure
+
+```
+Feedback-Collector/
+├── backend/
+│   ├── config/
+│   │   ├── db.js              # MongoDB connection
+│   │   └── env.js             # Environment variable validation
+│   ├── controllers/
+│   │   ├── authController.js  # Register, Login, Profile, Change Password
+│   │   └── feedbackController.js
+│   ├── middleware/
+│   │   ├── authMiddleware.js  # JWT verify + Role authorization
+│   │   ├── errorHandler.js    # Global error handler
+│   │   ├── notFound.js        # 404 handler
+│   │   └── validateRequest.js # Input validation
+│   ├── models/
+│   │   ├── Feedback.js        # Feedback schema (indexed)
+│   │   └── User.js            # User schema (hashed passwords)
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   └── feedbackRoutes.js
+│   ├── services/
+│   │   └── feedbackService.js # Business logic layer
+│   ├── utils/
+│   │   ├── ApiError.js        # Custom error class
+│   │   └── ApiResponse.js     # Standardized responses
+│   ├── app.js                 # Express app configuration
+│   └── server.js              # Server entry point
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── common/        # Reusable UI (Modal, Toast, SearchBar, Skeleton, etc.)
+│   │   │   ├── feedback/      # FeedbackForm, FeedbackList, FeedbackItem
+│   │   │   └── layout/        # Header, ProfileDropdown
+│   │   ├── context/
+│   │   │   ├── AuthContext.jsx # JWT + User state management
+│   │   │   └── ThemeContext.jsx# Dark/Light mode persistence
+│   │   ├── hooks/
+│   │   │   └── useFeedbackAPI.js # Custom hook for CRUD operations
+│   │   ├── pages/             # Login, Register, Dashboard, AdminDashboard
+│   │   ├── services/          # Axios API clients
+│   │   ├── styles/
+│   │   │   └── global.css     # Design tokens, CSS variables, themes
+│   │   └── utils/             # Filtering logic, validation helpers
+│   ├── vite.config.js
+│   └── package.json
+│
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v16 or higher)
-- [MongoDB](https://www.mongodb.com/) (running locally or via MongoDB Atlas)
+- **Node.js** v18+ 
+- **npm** v9+
+- **MongoDB Atlas** account (or local MongoDB)
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/feedback-collector.git
-cd "feedback-collector"
+git clone https://github.com/Himanshu-Singh11/Feedback-Collector.git
+cd Feedback-Collector
 ```
 
-### 2. Setup the Backend
+### 2. Backend Setup
 ```bash
 cd backend
 npm install
-cp .env.example .env
-# Edit .env to match your MongoDB URI (see Environment Variables below)
-npm run dev
 ```
-The backend server will start on `http://localhost:5000`.
 
-### 3. Setup the Frontend
-Open a new terminal window:
-```bash
-cd frontend
-npm install
-# Create the frontend .env file (see Environment Variables below)
-npm run dev
-```
-The frontend will be available at `http://localhost:5173`.
-
-## 🔐 Environment Variables
-
-### Backend (`backend/.env`)
-Create a `.env` file in the `backend` directory:
+Create a `.env` file in the `backend/` directory:
 ```env
 NODE_ENV=development
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/feedback_collector
-CLIENT_ORIGIN=http://localhost:5173
+PORT=5001
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/feedbackdb?retryWrites=true&w=majority
+JWT_SECRET=your_super_secret_key
+JWT_EXPIRE=30d
+CLIENT_ORIGIN=http://localhost:3000
 ```
 
-### Frontend (`frontend/.env`)
-Create a `.env` file in the `frontend` directory:
+Start the backend server:
+```bash
+npm run dev
+```
+
+### 3. Frontend Setup
+```bash
+cd ../frontend
+npm install
+```
+
+Create a `.env` file in the `frontend/` directory:
 ```env
-VITE_API_BASE_URL=http://localhost:5000/api
+VITE_API_BASE_URL=http://localhost:5001/api
 ```
 
-## 🌐 API Endpoints
-
-The backend exposes a clean REST API. All endpoints are prefixed with `/api/feedback`.
-
-| Method | Endpoint | Description | Payload |
-|--------|----------|-------------|---------|
-| `GET`  | `/`      | Retrieve all feedback, sorted newest-first | - |
-| `GET`  | `/:id`   | Retrieve a specific feedback entry by ID | - |
-| `POST` | `/`      | Submit a new feedback entry | `{ name, email, message }` |
-| `DELETE`| `/:id`  | Delete a specific feedback entry by ID | - |
-
-*All responses adhere to a strict standard format:*
-```json
-{
-  "success": true,
-  "message": "Action completed successfully.",
-  "data": {}
-}
+Start the frontend:
+```bash
+npm run dev
 ```
 
-## 🔮 Future Improvements
+### 4. Open in Browser
+Navigate to **http://localhost:3000** 🎉
 
-While this application is production-ready, potential future enhancements include:
-- **Authentication & Authorization:** Securing the dashboard behind an admin login (e.g., using JWTs or Firebase Auth).
-- **Pagination / Infinite Scroll:** Implementing cursor-based pagination for the feedback list if data sets grow massively.
-- **Database Query Optimizations:** Adding `.lean()` to Mongoose queries to further improve backend memory efficiency for read-only routes.
-- **Rate Limiting & Security:** Adding `helmet` and `express-rate-limit` to the backend to protect against brute-force attacks.
+---
+
+## 🌐 Deployment
+
+| Service | Platform | URL |
+|:---|:---|:---|
+| **Frontend** | GitHub Pages | [himanshu-singh11.github.io/Feedback-Collector](https://himanshu-singh11.github.io/Feedback-Collector) |
+| **Backend API** | Render | [feedback-collector-qwv3.onrender.com](https://feedback-collector-qwv3.onrender.com/health) |
+| **Database** | MongoDB Atlas | M0 Free Tier (512 MB) |
+
+### Deploy Frontend to GitHub Pages
+```bash
+cd frontend
+VITE_API_BASE_URL=https://feedback-collector-qwv3.onrender.com/api npm run deploy
+```
+
+> **Note:** Free Render instances spin down after 15 minutes of inactivity. The first request after idle may take 30-50 seconds (cold start).
+
+---
+
+## 🧪 Test Accounts
+
+| Role | Email | Password |
+|:---:|:---|:---|
+| **Admin** | `admin@example.com` | `password123` |
+| **User** | `user@example.com` | `password123` |
+
+> ⚠️ These accounts need to be created via the Register page. Any email containing "admin" will automatically be assigned the Admin role.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+
+**Built with ❤️ by [Himanshu Singh](https://github.com/Himanshu-Singh11)**
+
+⭐ Star this repo if you found it helpful!
+
+</div>

@@ -109,6 +109,8 @@ flowchart TD
     Request(["🌐 User Action"])
     
     subgraph Middleware ["🛡️ Security Verification"]
+
+
         direction TB
         T["1️⃣ Receive Key"]
         V["2️⃣ Verify Identity"]

@@ -106,23 +106,23 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    Request(["🌐 API Request"])
+    Request(["🌐 User Action"])
     
-    subgraph Middleware ["🛡️ Authentication Pipeline"]
+    subgraph Middleware ["🛡️ Security Verification"]
         direction LR
-        T["1️⃣ Extract Token"]
-        V["2️⃣ Verify Sig"]
-        U["3️⃣ Fetch User"]
-        R["4️⃣ Check Role"]
+        T["1️⃣ Receive Key"]
+        V["2️⃣ Verify Identity"]
+        U["3️⃣ Check Account"]
+        R["4️⃣ Check Permissions"]
         
         T --> V --> U --> R
     end
     
-    Block(["🚫 Blocked (401/403 Error)"])
-    Allow(["✅ Allowed (Process Request)"])
+    Block(["🚫 Access Denied"])
+    Allow(["✅ Action Approved"])
 
-    Request -- "Authorization: Bearer Token" --> Middleware
-    R -- "Pass" --> Allow
+    Request -- "Provides Login Key" --> Middleware
+    R -- "Success" --> Allow
     
     T -. "Fail" .-> Block
     V -. "Fail" .-> Block
@@ -130,17 +130,17 @@ flowchart TD
     R -. "Fail" .-> Block
 ```
 
-| Security Feature | Implementation |
+| Security Feature | What it means for the project |
 |:---|:---|
-| **Password Hashing** | bcryptjs with salt rounds (10) |
-| **JWT Authentication** | Signed tokens with configurable expiration (30d default) |
-| **Role-Based Access Control** | `protect` + `authorizeRoles` middleware chain |
-| **Data Isolation** | Users can only access/delete their own feedback |
-| **Password Exclusion** | Mongoose `select: false` — passwords never leak in API responses |
-| **Input Validation** | Schema-level (Mongoose) + middleware-level (validateRequest) |
-| **Payload Limiting** | `express.json({ limit: '10kb' })` prevents DOS attacks |
-| **Error Sanitization** | Stack traces hidden in production mode |
-| **Auto-Logout** | Axios interceptor catches 401 → fires DOM event → clears session |
+| **Encrypted Passwords** | Passwords are securely scrambled before being saved to the database. |
+| **Secure Login Tokens** | Users stay securely logged in without re-entering passwords every time. |
+| **Role-Based Access** | Separates regular Users from Admins to ensure correct access rights. |
+| **Data Privacy** | Users can only read, edit, or delete their own feedback. |
+| **Hidden Credentials** | Passwords are strictly protected and never leaked by the server. |
+| **Data Validation** | Checks all user inputs (like emails and ratings) to block fake or harmful data. |
+| **Spam Protection** | Limits the size of requests to prevent the server from being overwhelmed. |
+| **Safe Error Messages** | Hides sensitive server information from users when an error occurs. |
+| **Auto-Logout** | Automatically logs users out if their session expires to keep accounts safe. |
 
 ---
 

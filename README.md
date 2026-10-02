@@ -176,112 +176,96 @@ Feedback-Collector/
 
 ## 🚀 Getting Started
 
-Follow these simple steps to run the Feedback Collector project locally on your machine.
+### 📋 Prerequisites
+- **Node.js** (v18+)
+- **MongoDB Atlas** (or local instance)
 
-### 📋 What you need first
-- **Node.js** (v18 or newer) — To run the React app and backend server.
-- **MongoDB Atlas** (or local MongoDB) — To store user accounts and feedback data.
-
-### 1️⃣ Get the Code
-Download the project files to your computer.
+### 1️⃣ Clone & Setup
 ```bash
 git clone https://github.com/Himanshu-Singh11/Feedback-Collector.git
 cd Feedback-Collector
 ```
 
-### 2️⃣ Start the Backend Server
-This sets up the core logic, secures user data, and connects to the database.
+### 2️⃣ Start Backend
 ```bash
 cd backend
 npm install
 ```
-Create a `.env` file inside the `backend/` folder and add your database details:
+Create `backend/.env`:
 ```env
 PORT=5001
-MONGO_URI=your_mongodb_connection_string_here
+MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_super_secret_key
 JWT_EXPIRE=30d
 CLIENT_ORIGIN=http://localhost:3000
 ```
-Start the backend:
 ```bash
 npm run dev
 ```
 
-### 3️⃣ Start the React Frontend
-Now, let's launch the user interface where people will submit their feedback.
-Open a **new terminal window** and run:
+### 3️⃣ Start Frontend
+Open a **new terminal**:
 ```bash
 cd frontend
 npm install
 ```
-Create a `.env` file inside the `frontend/` folder to connect to your local backend:
+Create `frontend/.env`:
 ```env
 VITE_API_BASE_URL=http://localhost:5001/api
 ```
-Start the website:
 ```bash
 npm run dev
 ```
 
-### 4️⃣ Explore the App! 🎉
-Open your web browser and visit **http://localhost:3000** to see the Feedback Collector in action.
+Navigate to **http://localhost:3000** in your browser. 🎉
 
 ---
 
-## 🌐 Live Application (Deployment)
+## 🌐 Live Application
 
-This project is fully deployed and accessible online. We split the deployment into three parts to ensure optimal speed and security:
-
-| Part of Project | Hosted On | Live Link / Details |
+| Part | Platform | Details |
 |:---|:---|:---|
-| **User Interface (React)** | GitHub Pages | [Open the Live App](https://himanshu-singh11.github.io/Feedback-Collector) |
-| **Backend Server** | Render | Serves API requests securely |
-| **Database** | MongoDB Atlas | Cloud database for user data |
+| **Frontend** | GitHub Pages | [View Live App](https://himanshu-singh11.github.io/Feedback-Collector) |
+| **Backend** | Render | API Server |
+| **Database**| MongoDB Atlas | Cloud Storage |
 
-### Pushing Updates to the Live Website
-If you make changes to the React frontend code and want to update the live website, run this simple command:
+### Deploy Updates (Frontend)
 ```bash
 cd frontend
 VITE_API_BASE_URL=https://feedback-collector-qwv3.onrender.com/api npm run deploy
 ```
-
-> **💡 Quick Note on Server Speed:** Our backend is hosted on a free Render tier, which automatically "goes to sleep" if no one uses the app for 15 minutes. When you open the app after a break, it might take **30-50 seconds to wake up**. Please be patient on the first load!
+> **💡 Note:** Free Render backends sleep after 15 minutes of inactivity. Initial load may take 30-50 seconds.
 
 ---
 
-## 🧪 Try It Out (Test Accounts)
+## 🧪 Test Accounts
 
-Want to explore the app without using your real email? You can easily create test accounts to experience different features.
+Register with the following details to test different access levels:
 
-| Access Level | Example Email to Register | Password to Use |
+| Role | Email | Password |
 |:---:|:---|:---|
-| **Admin Dashboard** | `admin@example.com` | `password123` |
-| **Regular User** | `user@example.com` | `password123` |
+| **Admin** | `admin@example.com` | `password123` |
+| **User** | `user@example.com` | `password123` |
 
-> **⚠️ Important:** You need to manually sign up on the "Register" page using these details. 
-> *Pro Tip:* Our system automatically gives full Admin rights to any newly registered account that has the word **"admin"** inside its email address!
+> ⚠️ *Accounts with "admin" in the email are automatically granted Admin rights.*
 
 ---
 
-## 🤝 Want to Contribute?
+## 🤝 Contributing
 
-We would love your help to make this Feedback Collector even better! Whether you want to fix a bug, add a cool new feature, or improve the design, everyone is welcome to contribute.
+Contributions are always welcome! 
 
-**Here is how you can help:**
-1. **Fork the Project:** Create a copy on your own GitHub account.
-2. **Create a Branch:** Make a separate space for your feature (`git checkout -b feature/YourNewFeature`).
-3. **Save your Work:** Commit your changes with a clear message (`git commit -m 'Added a new rating emoji'`).
-4. **Upload your Code:** Push the changes back to your GitHub (`git push origin feature/YourNewFeature`).
-5. **Open a Pull Request:** Submit your work so we can review and merge it into the main project!
+1. **Fork** the repository.
+2. **Branch:** `git checkout -b feature/NewFeature`
+3. **Commit:** `git commit -m 'Add NewFeature'`
+4. **Push:** `git push origin feature/NewFeature`
+5. **Open a Pull Request.**
 
 ---
 
 ## 📄 License
 
-This project is completely open-source and free to use under the [MIT License](LICENSE). You are welcome to learn from it, modify it, or use it in your own projects!
-
----
+Open-source under the [MIT License](LICENSE).
 
 <div align="center">
   <br/>

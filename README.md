@@ -134,17 +134,17 @@ flowchart TD
     R -. "Fail" .-> Block
 ```
 
-| Security Feature | What it means for the project |
+| Security Feature | How it protects the project |
 |:---|:---|
-| **Encrypted Passwords** | Passwords are securely scrambled before being saved to the database. |
-| **Secure Login Tokens** | Users stay securely logged in without re-entering passwords every time. |
-| **Role-Based Access** | Separates regular Users from Admins to ensure correct access rights. |
-| **Data Privacy** | Users can only read, edit, or delete their own feedback. |
-| **Hidden Credentials** | Passwords are strictly protected and never leaked by the server. |
-| **Data Validation** | Checks all user inputs (like emails and ratings) to block fake or harmful data. |
-| **Spam Protection** | Limits the size of requests to prevent the server from being overwhelmed. |
-| **Safe Error Messages** | Hides sensitive server information from users when an error occurs. |
-| **Auto-Logout** | Automatically logs users out if their session expires to keep accounts safe. |
+| **Encrypted Passwords** | Secures user accounts by encrypting passwords before storing them in the database. |
+| **Secure Login Sessions** | Keeps users safely logged in so they can submit feedback without repeatedly typing passwords. |
+| **Role-Based Access** | Gives Admins full control of the platform, while restricting regular users to their own personal dashboard. |
+| **Feedback Privacy** | Ensures that users can only view, manage, and delete the feedback they personally submitted. |
+| **Hidden Data Protection**| Prevents sensitive information (like passwords) from ever being exposed when the app requests data. |
+| **Smart Data Validation** | Checks all incoming feedback and email addresses to block fake submissions and harmful code. |
+| **Overload Protection** | Limits the size of incoming messages to prevent the server from being slowed down or crashed by spam. |
+| **Safe Error Handling** | Displays friendly error messages to users without revealing any internal server secrets. |
+| **Automatic Logout** | Automatically signs users out when their session expires to prevent unauthorized access to their account. |
 
 ---
 

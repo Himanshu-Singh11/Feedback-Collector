@@ -229,32 +229,38 @@ Open your web browser and visit **http://localhost:3000** to see the Feedback Co
 
 ---
 
-## 🌐 Deployment
+## 🌐 Live Application (Deployment)
 
-| Service | Platform | URL |
+This project is fully deployed and accessible online. We split the deployment into three parts to ensure optimal speed and security:
+
+| Part of Project | Hosted On | Live Link / Details |
 |:---|:---|:---|
-| **Frontend** | GitHub Pages | [himanshu-singh11.github.io/Feedback-Collector](https://himanshu-singh11.github.io/Feedback-Collector) |
-| **Backend API** | Render | [feedback-collector-qwv3.onrender.com](https://feedback-collector-qwv3.onrender.com/health) |
-| **Database** | MongoDB Atlas | M0 Free Tier (512 MB) |
+| **User Interface (React)** | GitHub Pages | [Open the Live App](https://himanshu-singh11.github.io/Feedback-Collector) |
+| **Backend Server** | Render | Serves API requests securely |
+| **Database** | MongoDB Atlas | Cloud database for user data |
 
-### Deploy Frontend to GitHub Pages
+### Pushing Updates to the Live Website
+If you make changes to the React frontend code and want to update the live website, run this simple command:
 ```bash
 cd frontend
 VITE_API_BASE_URL=https://feedback-collector-qwv3.onrender.com/api npm run deploy
 ```
 
-> **Note:** Free Render instances spin down after 15 minutes of inactivity. The first request after idle may take 30-50 seconds (cold start).
+> **💡 Quick Note on Server Speed:** Our backend is hosted on a free Render tier, which automatically "goes to sleep" if no one uses the app for 15 minutes. When you open the app after a break, it might take **30-50 seconds to wake up**. Please be patient on the first load!
 
 ---
 
-## 🧪 Test Accounts
+## 🧪 Try It Out (Test Accounts)
 
-| Role | Email | Password |
+Want to explore the app without using your real email? You can easily create test accounts to experience different features.
+
+| Access Level | Example Email to Register | Password to Use |
 |:---:|:---|:---|
-| **Admin** | `admin@example.com` | `password123` |
-| **User** | `user@example.com` | `password123` |
+| **Admin Dashboard** | `admin@example.com` | `password123` |
+| **Regular User** | `user@example.com` | `password123` |
 
-> ⚠️ These accounts need to be created via the Register page. Any email containing "admin" will automatically be assigned the Admin role.
+> **⚠️ Important:** You need to manually sign up on the "Register" page using these details. 
+> *Pro Tip:* Our system automatically gives full Admin rights to any newly registered account that has the word **"admin"** inside its email address!
 
 ---
 

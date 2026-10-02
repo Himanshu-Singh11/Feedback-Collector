@@ -264,26 +264,29 @@ Want to explore the app without using your real email? You can easily create tes
 
 ---
 
-## 🤝 Contributing
+## 🤝 Want to Contribute?
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We would love your help to make this Feedback Collector even better! Whether you want to fix a bug, add a cool new feature, or improve the design, everyone is welcome to contribute.
+
+**Here is how you can help:**
+1. **Fork the Project:** Create a copy on your own GitHub account.
+2. **Create a Branch:** Make a separate space for your feature (`git checkout -b feature/YourNewFeature`).
+3. **Save your Work:** Commit your changes with a clear message (`git commit -m 'Added a new rating emoji'`).
+4. **Upload your Code:** Push the changes back to your GitHub (`git push origin feature/YourNewFeature`).
+5. **Open a Pull Request:** Submit your work so we can review and merge it into the main project!
 
 ---
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is completely open-source and free to use under the [MIT License](LICENSE). You are welcome to learn from it, modify it, or use it in your own projects!
 
 ---
 
 <div align="center">
-
-**Built with ❤️ by [Himanshu Singh](https://github.com/Himanshu-Singh11)**
-
-⭐ Star this repo if you found it helpful!
-
+  <br/>
+  <b>Built with ❤️ by <a href="https://github.com/Himanshu-Singh11">Himanshu Singh</a></b>
+  <br/><br/>
+  <i>If you liked this project or found it helpful, please consider giving it a ⭐!</i>
+  <br/>
 </div>

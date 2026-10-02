@@ -148,55 +148,28 @@ flowchart TD
 
 ## 📁 Project Structure
 
-```
+```text
 Feedback-Collector/
-├── backend/
-│   ├── config/
-│   │   ├── db.js              # MongoDB connection
-│   │   └── env.js             # Environment variable validation
-│   ├── controllers/
-│   │   ├── authController.js  # Register, Login, Profile, Change Password
-│   │   └── feedbackController.js
-│   ├── middleware/
-│   │   ├── authMiddleware.js  # JWT verify + Role authorization
-│   │   ├── errorHandler.js    # Global error handler
-│   │   ├── notFound.js        # 404 handler
-│   │   └── validateRequest.js # Input validation
-│   ├── models/
-│   │   ├── Feedback.js        # Feedback schema (indexed)
-│   │   └── User.js            # User schema (hashed passwords)
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   └── feedbackRoutes.js
-│   ├── services/
-│   │   └── feedbackService.js # Business logic layer
-│   ├── utils/
-│   │   ├── ApiError.js        # Custom error class
-│   │   └── ApiResponse.js     # Standardized responses
-│   ├── app.js                 # Express app configuration
-│   └── server.js              # Server entry point
-│
-├── frontend/
+├── frontend/                  # 🎨 Main React.js Application
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── common/        # Reusable UI (Modal, Toast, SearchBar, Skeleton, etc.)
-│   │   │   ├── feedback/      # FeedbackForm, FeedbackList, FeedbackItem
-│   │   │   └── layout/        # Header, ProfileDropdown
-│   │   ├── context/
-│   │   │   ├── AuthContext.jsx # JWT + User state management
-│   │   │   └── ThemeContext.jsx# Dark/Light mode persistence
-│   │   ├── hooks/
-│   │   │   └── useFeedbackAPI.js # Custom hook for CRUD operations
-│   │   ├── pages/             # Login, Register, Dashboard, AdminDashboard
-│   │   ├── services/          # Axios API clients
-│   │   ├── styles/
-│   │   │   └── global.css     # Design tokens, CSS variables, themes
-│   │   └── utils/             # Filtering logic, validation helpers
-│   ├── vite.config.js
-│   └── package.json
+│   │   ├── components/        
+│   │   │   ├── common/        # Reusable UI (Buttons, Popups, SearchBar)
+│   │   │   ├── feedback/      # Core feedback submission forms and lists
+│   │   │   └── layout/        # Navbar, Header, and Menus
+│   │   ├── context/           # Manages user login state and Dark/Light themes
+│   │   ├── pages/             # Main screens: Dashboard, Admin Panel, Login
+│   │   ├── services/          # Connects the React app to the backend
+│   │   └── styles/            # Modern CSS styling and color themes
+│   └── package.json           # Frontend dependencies
 │
-├── .gitignore
-└── README.md
+├── backend/                   # ⚙️ Node.js Server & Database
+│   ├── controllers/           # Handles the logic for login and feedback
+│   ├── models/                # Database structures for Users and Feedback
+│   ├── routes/                # API endpoints (/api/auth, /api/feedback)
+│   ├── middleware/            # Security checks and error handling
+│   └── server.js              # Main backend server file
+│
+└── README.md                  # Project documentation
 ```
 
 ---

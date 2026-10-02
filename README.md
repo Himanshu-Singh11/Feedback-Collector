@@ -108,24 +108,26 @@ flowchart TD
 flowchart TD
     Request(["🌐 User Action"])
     
-    subgraph Middleware [" "]
+    subgraph Middleware ["🛡️ Security Verification"]
         direction TB
-        Sec[["🛡️ Security Verification"]]
         T["1️⃣ Receive Key"]
         V["2️⃣ Verify Identity"]
         U["3️⃣ Check Account"]
         R["4️⃣ Check Permissions"]
         
-        Sec --> T --> V --> U --> R
+        T --> V --> U --> R
     end
     
     Block(["🚫 Access Denied"])
     Allow(["✅ Action Approved"])
 
-    Request -- "Provides Login Key" --> Sec
+    Request -- "Provides Login Key" --> Middleware
     R -- "Success" --> Allow
     
-    Middleware -. "Fail (Any Step)" .-> Block
+    T -. "Fail" .-> Block
+    V -. "Fail" .-> Block
+    U -. "Fail" .-> Block
+    R -. "Fail" .-> Block
 ```
 
 | Security Feature | What it means for the project |

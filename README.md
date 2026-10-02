@@ -69,17 +69,16 @@ flowchart TD
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology | Purpose |
+| Part of Project | Technology Used | Why we used it |
 |:---:|:---|:---|
-| **Frontend** | React 18, Vite, React Router 7 | SPA with fast HMR and modern routing |
-| **Styling** | CSS Modules, CSS Variables | Scoped styles with dynamic theming |
-| **State** | React Context API, useReducer | Auth state, theme management |
-| **HTTP Client** | Axios | Request/response interceptors, auto-auth |
-| **Backend** | Node.js, Express.js | RESTful API server |
-| **Auth** | JWT (jsonwebtoken), bcryptjs | Token-based auth with password hashing |
-| **Database** | MongoDB Atlas, Mongoose | Cloud-hosted NoSQL with ODM |
-| **Logging** | Morgan | HTTP request logging |
-| **Deployment** | GitHub Pages + Render | Frontend CDN + Backend cloud hosting |
+| **Frontend** | React, Vite, React Router | To build a fast, interactive, and seamless user interface. |
+| **Design & Styling**| CSS Modules, CSS Variables| To create a beautiful design with smooth Dark & Light modes. |
+| **State Management**| React Context API | To remember user login details and theme choices across all pages. |
+| **API Client** | Axios | To securely send and receive data between the frontend and the server. |
+| **Backend Server** | Node.js, Express.js | To handle all the core logic, secure routes, and process feedback. |
+| **Security** | JWT, bcryptjs | To encrypt passwords and safely keep users logged into their accounts. |
+| **Database** | MongoDB Atlas, Mongoose | To safely store all the user accounts and feedback data in the cloud. |
+| **Hosting** | GitHub Pages & Render | To host the website and server online so anyone can use it. |
 
 ---
 

@@ -85,25 +85,20 @@ flowchart TD
 ## 📡 API Endpoints
 
 ### Authentication
-| Method | Endpoint | Description | Auth |
-|:---:|:---|:---|:---:|
-| `POST` | `/api/auth/register` | Register new user | ❌ |
-| `POST` | `/api/auth/login` | Login & get JWT token | ❌ |
-| `GET` | `/api/auth/profile` | Get current user profile | ✅ |
-| `PUT` | `/api/auth/change-password` | Update password | ✅ |
+| Method | Endpoint | Action | Login Required | Who Can Access |
+|:---:|:---|:---|:---:|:---|
+| `POST` | `/api/auth/register` | Create a new user account | ❌ | Anyone |
+| `POST` | `/api/auth/login` | Log in to the application | ❌ | Anyone |
+| `GET` | `/api/auth/profile` | View your profile details | ✅ | Logged-in Users |
+| `PUT` | `/api/auth/change-password` | Change your password | ✅ | Logged-in Users |
 
 ### Feedback
-| Method | Endpoint | Description | Auth | Roles |
-|:---:|:---|:---|:---:|:---:|
-| `GET` | `/api/feedback` | Get feedbacks (scoped by role) | ✅ | User, Admin |
-| `GET` | `/api/feedback/:id` | Get single feedback | ✅ | Owner, Admin |
-| `POST` | `/api/feedback` | Submit new feedback | ✅ | User, Admin |
-| `DELETE` | `/api/feedback/:id` | Delete feedback | ✅ | Owner, Admin |
-
-### Health
-| Method | Endpoint | Description | Auth |
-|:---:|:---|:---|:---:|
-| `GET` | `/health` | Server status check | ❌ |
+| Method | Endpoint | Action | Login Required | Who Can Access |
+|:---:|:---|:---|:---:|:---|
+| `GET` | `/api/feedback` | View a list of feedback | ✅ | Users (Own), Admins (All) |
+| `GET` | `/api/feedback/:id` | Read a specific feedback | ✅ | Creator & Admins |
+| `POST` | `/api/feedback` | Send new feedback | ✅ | Logged-in Users |
+| `DELETE` | `/api/feedback/:id` | Delete a feedback message | ✅ | Creator & Admins |
 
 ---
 

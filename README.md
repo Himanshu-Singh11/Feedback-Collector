@@ -14,31 +14,6 @@ A modern, production-ready web application for collecting, managing, and analyzi
 
 </div>
 
-## 📸 Screenshots
-
-> **Add your own screenshots here!** Run the app locally, take screenshots of Login, Dashboard, Admin Panel (both themes), and save them in `frontend/public/screenshots/`.
-
-<!-- 
-Uncomment and update paths after adding your screenshots:
-
-### 🔐 Login Page
-| Light Mode | Dark Mode |
-|:---:|:---:|
-| ![Login Light](frontend/public/screenshots/login-light.png) | ![Login Dark](frontend/public/screenshots/login-dark.png) |
-
-### 📊 User Dashboard
-| Light Mode | Dark Mode |
-|:---:|:---:|
-| ![Dashboard Light](frontend/public/screenshots/dashboard-light.png) | ![Dashboard Dark](frontend/public/screenshots/dashboard-dark.png) |
-
-### 🛡️ Admin Dashboard
-| Light Mode | Dark Mode |
-|:---:|:---:|
-| ![Admin Light](frontend/public/screenshots/admin-light.png) | ![Admin Dark](frontend/public/screenshots/admin-dark.png) |
--->
-
----
-
 ## ✨ Key Features
 
 ### 👤 User Features

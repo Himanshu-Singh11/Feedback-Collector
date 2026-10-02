@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img src="./frontend/src/assets/logo.png" width="48" height="48" alt="Feedback Collector Logo" style="vertical-align: middle; margin-right: 10px;" /> Feedback Collector
+# <img src="./frontend/src/assets/logo.png" width="42" height="42" alt="Feedback Collector Logo" align="center" />&nbsp;&nbsp;Feedback Collector
 
 ### A Full-Stack Feedback Management Platform
 

@@ -116,8 +116,7 @@ flowchart TD
         U["3️⃣ Check Account"]
         R["4️⃣ Check Permissions"]
         
-        Sec --> T
-        T --> V --> U --> R
+        Sec --> T --> V --> U --> R
     end
     
     Block(["🚫 Access Denied"])
@@ -126,10 +125,7 @@ flowchart TD
     Request -- "Provides Login Key" --> Sec
     R -- "Success" --> Allow
     
-    T -. "Fail" .-> Block
-    V -. "Fail" .-> Block
-    U -. "Fail" .-> Block
-    R -. "Fail" .-> Block
+    Middleware -. "Fail (Any Step)" .-> Block
 ```
 
 | Security Feature | What it means for the project |

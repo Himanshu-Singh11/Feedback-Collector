@@ -176,56 +176,56 @@ Feedback-Collector/
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- **Node.js** v18+ 
-- **npm** v9+
-- **MongoDB Atlas** account (or local MongoDB)
+Follow these simple steps to run the Feedback Collector project locally on your machine.
 
-### 1. Clone the Repository
+### 📋 What you need first
+- **Node.js** (v18 or newer) — To run the React app and backend server.
+- **MongoDB Atlas** (or local MongoDB) — To store user accounts and feedback data.
+
+### 1️⃣ Get the Code
+Download the project files to your computer.
 ```bash
 git clone https://github.com/Himanshu-Singh11/Feedback-Collector.git
 cd Feedback-Collector
 ```
 
-### 2. Backend Setup
+### 2️⃣ Start the Backend Server
+This sets up the core logic, secures user data, and connects to the database.
 ```bash
 cd backend
 npm install
 ```
-
-Create a `.env` file in the `backend/` directory:
+Create a `.env` file inside the `backend/` folder and add your database details:
 ```env
-NODE_ENV=development
 PORT=5001
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/feedbackdb?retryWrites=true&w=majority
+MONGO_URI=your_mongodb_connection_string_here
 JWT_SECRET=your_super_secret_key
 JWT_EXPIRE=30d
 CLIENT_ORIGIN=http://localhost:3000
 ```
-
-Start the backend server:
+Start the backend:
 ```bash
 npm run dev
 ```
 
-### 3. Frontend Setup
+### 3️⃣ Start the React Frontend
+Now, let's launch the user interface where people will submit their feedback.
+Open a **new terminal window** and run:
 ```bash
-cd ../frontend
+cd frontend
 npm install
 ```
-
-Create a `.env` file in the `frontend/` directory:
+Create a `.env` file inside the `frontend/` folder to connect to your local backend:
 ```env
 VITE_API_BASE_URL=http://localhost:5001/api
 ```
-
-Start the frontend:
+Start the website:
 ```bash
 npm run dev
 ```
 
-### 4. Open in Browser
-Navigate to **http://localhost:3000** 🎉
+### 4️⃣ Explore the App! 🎉
+Open your web browser and visit **http://localhost:3000** to see the Feedback Collector in action.
 
 ---
 
